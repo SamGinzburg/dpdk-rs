@@ -9,6 +9,12 @@
 
 use ::std::os::raw::{c_char, c_int};
 
+// rust-bindgen doesn't support functional macros!!!
+pub const RTE_ETH_RSS_NONFRAG_IPV4_TCP: u64 = 1<<4;
+pub const RTE_ETH_RSS_NONFRAG_IPV4_UDP: u64 = 1<<5;
+pub const RTE_ETH_RSS_NONFRAG_IPV6_TCP: u64 = 1<<10;
+pub const RTE_ETH_RSS_NONFRAG_IPV6_UDP: u64 = 1<<11;
+
 #[link(name = "inlined")]
 extern "C" {
     fn rte_pktmbuf_free_(packet: *mut rte_mbuf);
